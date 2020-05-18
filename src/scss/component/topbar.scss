@@ -663,60 +663,6 @@
   }
 }
 
-.topbar__search {
-  display: none;
-  margin: auto 0;
-  padding: 0;
-  position: relative;
-}
-
-.topbar__search-field {
-  width: 0;
-  transition: all 0.3s;
-  opacity: 0;
-  margin: auto auto auto 0;
-  border: none;
-  border-radius: 13px;
-  height: 26px;
-  padding-left: 10px;
-  padding-right: 46px;
-
-  @include themify($themes) {
-    background-color: themed('colorBackgroundBody');
-  }
-
-  &.topbar__search-field--open {
-    width: 200px;
-    opacity: 1;
-    margin-left: 10px;
-
-    & + button {
-      right: 10px;
-    }
-  }
-
-  &:focus {
-    outline: none;
-  }
-}
-
-.topbar__search-btn {
-  height: 26px;
-  width: 26px;
-  border-radius: 13px;
-  border: none;
-  padding: 0;
-  background: transparent;
-  position: absolute;
-  right: 0;
-
-  &:hover {
-
-    @include themify($themes) {
-      background-color: themed('colorBackgroundBody');
-    }
-  }
-}
 
 @media screen and (min-width: 480px) {
 
@@ -751,12 +697,6 @@
   }
 }
 
-@media screen and (min-width: 768px) {
-
-  .topbar__search {
-    display: flex;
-  }
-}
 
 @media screen and (min-width: 992px) {
 

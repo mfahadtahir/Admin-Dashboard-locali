@@ -32,9 +32,7 @@ export default class TopbarProfile extends PureComponent {
           <div className="topbar__menu">
             <TopbarMenuLink title="Profile" icon="user" path="/profile" />
             <div className="topbar__menu-divider" />
-            {/* <div onClick={() => SignOut}> */}
             <TopbarMenuLink title="Log Out" icon="exit" clickFunc={() => SignOut()} path="/" />
-            {/* </div> */}
           </div>
         </Collapse>
       </div>
