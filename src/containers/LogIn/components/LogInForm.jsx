@@ -3,7 +3,8 @@ import EyeIcon from 'mdi-react/EyeIcon';
 import KeyVariantIcon from 'mdi-react/KeyVariantIcon';
 import AccountOutlineIcon from 'mdi-react/AccountOutlineIcon';
 import { Link } from 'react-router-dom';
-import CheckBox from '../../../shared/components/form/CheckBox';
+import { SignInCall } from '../Firebase/auth'
+import logoImg from '../../../shared/img/logo/Locali_Logo.png'
 
 class LogInForm extends PureComponent {
   constructor() {
@@ -22,50 +23,61 @@ class LogInForm extends PureComponent {
     const { showPassword } = this.state;
 
     return (
-      <form className="form">
-        <div className="form__form-group">
-          <span className="form__form-group-label">Username</span>
-          <div className="form__form-group-field">
-            <div className="form__form-group-icon">
-              <AccountOutlineIcon />
+      <div className="account">
+        <div className="account__wrapper">
+          <div className="account__card">
+            <div className="account__head">
+              <h3 className="account__title">Welcome to 
+                <span className="account__logo">
+                  <span className="account__logo-accent"> <img alt='' height='50' src={logoImg} /> </span>
+                </span>
+              </h3>
+              <h4 className="account__subhead subhead">Start your business easily</h4>
             </div>
-            <input
-              name="name"
-              type="text"
-              placeholder="Name"
-            />
+            <form className="form">
+              <div className="form__form-group">
+                <span className="form__form-group-label">User Email</span>
+                <div className="form__form-group-field">
+                  <div className="form__form-group-icon">
+                    <AccountOutlineIcon />
+                  </div>
+                  <input
+                    name="name"
+                    type="text"
+                    placeholder="Email"
+                    id="login-email"
+                  />
+                </div>
+              </div>
+              <div className="form__form-group">
+                <span className="form__form-group-label">Password</span>
+                <div className="form__form-group-field">
+                  <div className="form__form-group-icon">
+                    <KeyVariantIcon />
+                  </div>
+                  <input
+                    name="password"
+                    type={showPassword ? 'text' : 'password'}
+                    placeholder="Password"
+                    id='login-pass'
+                  />
+                  <button
+                    className={`form__form-group-button${showPassword ? ' active' : ''}`}
+                    onClick={e => this.showPassword(e)}
+                    type="button"
+                  ><EyeIcon />
+                  </button>
+                </div>
+                <div className="account__forgot-password">
+                  <a href="/">Forgot a password?</a>
+                </div>
+              </div>
+              <a href='!#' className="btn btn-primary account__btn account__btn--small" style={{marginTop: 20}} onClick={SignInCall} >Sign In</a>
+              <Link className="btn btn-outline-primary account__btn account__btn--small" to="/sign_up">Create Account</Link>
+            </form>
           </div>
         </div>
-        <div className="form__form-group">
-          <span className="form__form-group-label">Password</span>
-          <div className="form__form-group-field">
-            <div className="form__form-group-icon">
-              <KeyVariantIcon />
-            </div>
-            <input
-              name="password"
-              type={showPassword ? 'text' : 'password'}
-              placeholder="Password"
-            />
-            <button
-              className={`form__form-group-button${showPassword ? ' active' : ''}`}
-              onClick={e => this.showPassword(e)}
-              type="button"
-            ><EyeIcon />
-            </button>
-          </div>
-          <div className="account__forgot-password">
-            <a href="/">Forgot a password?</a>
-          </div>
-        </div>
-        <div className="form__form-group">
-          <div className="form__form-group-field">
-            <CheckBox name="remember_me" label="Remember me" value="on" onChange={() => {}} />
-          </div>
-        </div>
-        <Link className="btn btn-primary account__btn account__btn--small" to="/pages/one">Sign In</Link>
-        <Link className="btn btn-outline-primary account__btn account__btn--small" to="/log_in">Create Account</Link>
-      </form>
+      </div>
     );
   }
 }

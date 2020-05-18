@@ -5,11 +5,11 @@
   &:hover {
 
     .checkbox-btn__checkbox-custom {
-      border-color: $color-accent;
+      border-color: $color-green;
     }
 
     .checkbox-btn__label {
-      color: $color-accent;
+      color: $color-green;
     }
   }
 
@@ -38,8 +38,8 @@
   &.checkbox-btn--colored {
 
     .checkbox-btn__checkbox-custom {
-      border-color: $color-accent;
-      background-color: $color-accent;
+      border-color: $color-green;
+      background-color: $color-green;
 
       svg {
         fill: #ffffff;
@@ -50,8 +50,8 @@
       opacity: 0.4;
 
       .checkbox-btn__checkbox-custom {
-        border-color: $color-accent;
-        background-color: $color-accent;
+        border-color: $color-green;
+        background-color: $color-green;
       }
     }
   }
@@ -59,8 +59,8 @@
   &.checkbox-btn--colored-click {
 
     .checkbox-btn__checkbox:checked + .checkbox-btn__checkbox-custom {
-      border-color: $color-accent;
-      background-color: $color-accent;
+      border-color: $color-green;
+      background-color: $color-green;
 
       svg {
         fill: #ffffff;
@@ -84,7 +84,7 @@
   }
 
   &.checkbox-btn--button {
-    background: $color-accent;
+    background: $color-green;
     min-width: 150px;
     color: #ffffff;
     height: 24px;
@@ -134,7 +134,7 @@
     }
 
     &:hover {
-      background: $color-accent-hover;
+      background: $color-green-hover;
 
       .checkbox-btn__label {
         color: #ffffff;
@@ -170,7 +170,7 @@
     opacity: 0;
     height: 16px;
     width: 16px;
-    fill: $color-accent;
+    fill: $color-green;
     margin-top: -6px;
   }
 }

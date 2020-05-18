@@ -46,7 +46,7 @@
 
     &:focus, &:active {
       outline: none;
-      border-color: $color-accent;
+      border-color: $color-green;
     }
   }
 
@@ -246,7 +246,7 @@
     &.is-focused, &.is-focused:not(.is-open) {
 
       .Select-control {
-        border-color: $color-accent;
+        border-color: $color-green;
         box-shadow: none;
         background: transparent;
       }
@@ -332,8 +332,8 @@
   }
 
   &.active {
-    background: $color-accent;
-    border: 1px solid $color-accent;
+    background: $color-green;
+    border: 1px solid $color-green;
 
     svg {
       fill: #ffffff;

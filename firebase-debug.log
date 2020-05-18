@@ -1,0 +1,44 @@
+[debug] [2020-05-18T10:30:37.037Z] ----------------------------------------------------------------------
+[debug] [2020-05-18T10:30:37.042Z] Command:       /usr/local/bin/firebase /home/maxplanko89/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase deploy
+[debug] [2020-05-18T10:30:37.042Z] CLI Version:   7.14.0
+[debug] [2020-05-18T10:30:37.042Z] Platform:      linux
+[debug] [2020-05-18T10:30:37.042Z] Node Version:  v12.13.1
+[debug] [2020-05-18T10:30:37.043Z] Time:          Mon May 18 2020 15:30:37 GMT+0500 (Pakistan Standard Time)
+[debug] [2020-05-18T10:30:37.043Z] ----------------------------------------------------------------------
+[debug] [2020-05-18T10:30:37.043Z] 
+[debug] [2020-05-18T10:30:37.052Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-18T10:30:37.053Z] > authorizing via signed-in user
+[debug] [2020-05-18T10:30:37.053Z] [iam] checking project projectpurple-e7dba for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-05-18T10:30:37.057Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-05-18T10:30:37.058Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-05-18T10:30:42.443Z] <<< HTTP RESPONSE 200
+[debug] [2020-05-18T10:30:42.450Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/projectpurple-e7dba:testIamPermissions  
+
+[debug] [2020-05-18T10:30:48.916Z] <<< HTTP RESPONSE 200
+[debug] [2020-05-18T10:30:48.918Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/projectpurple-e7dba  
+ 
+[debug] [2020-05-18T10:30:49.350Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'projectpurple-e7dba'...
+[info] 
+[info] i  deploying hosting
+[debug] [2020-05-18T10:30:49.357Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/projectpurple-e7dba/versions  
+
+[debug] [2020-05-18T10:31:09.724Z] Error: getaddrinfo EAI_AGAIN firebasehosting.googleapis.com
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:60:26)
+[error] 
+[error] Error: Server Error. getaddrinfo EAI_AGAIN firebasehosting.googleapis.com
+[debug] [2020-05-18T10:32:10.615Z] ----------------------------------------------------------------------
+[debug] [2020-05-18T10:32:10.617Z] Command:       /usr/local/bin/firebase /home/maxplanko89/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase deploy
+[debug] [2020-05-18T10:32:10.617Z] CLI Version:   7.14.0
+[debug] [2020-05-18T10:32:10.617Z] Platform:      linux
+[debug] [2020-05-18T10:32:10.617Z] Node Version:  v12.13.1
+[debug] [2020-05-18T10:32:10.617Z] Time:          Mon May 18 2020 15:32:10 GMT+0500 (Pakistan Standard Time)
+[debug] [2020-05-18T10:32:10.617Z] ----------------------------------------------------------------------
+[debug] [2020-05-18T10:32:10.617Z] 
+[debug] [2020-05-18T10:32:10.623Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-18T10:32:10.623Z] > authorizing via signed-in user
+[debug] [2020-05-18T10:32:10.623Z] [iam] checking project projectpurple-e7dba for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-05-18T10:32:10.625Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/projectpurple-e7dba:testIamPermissions  
+

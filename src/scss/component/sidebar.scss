@@ -81,7 +81,7 @@
 
     div {
       transition: height 0.3s;
-      opacity: 0.52;
+      opacity: 0.7;
     }
   }
 }
@@ -120,8 +120,8 @@
     left: 0;
     top: 0;
     height: 100%;
-    width: 2px;
-    background: $color-accent;
+    width: 4px;
+    background: $color-green;
     opacity: 0;
     transition: all 0.3s;
   }
@@ -160,7 +160,7 @@
   margin-right: 10px;
   font-size: 13px;
   line-height: 13px;
-  color: #b1c3c8;
+  color: $color-green ;
 }
 
 .sidebar__submenu {

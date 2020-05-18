@@ -18,7 +18,7 @@
     height: 0;
     width: 0;
     border-radius: 50%;
-    background-color: $color-accent;
+    background-color: $color-green;
     transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
     transform: translate(-50%, -50%);
     z-index: -1;
@@ -186,32 +186,32 @@
   }
 
   &.btn-success {
-    background-color: $color-accent;
-    border-color: $color-accent;
+    background-color: $color-green;
+    border-color: $color-green;
 
     &:before {
-      background-color: $color-accent-hover;
+      background-color: $color-green-hover;
     }
 
     &:hover, &:focus, &:active, &:active:focus {
-      border-color: $color-accent-hover;
+      border-color: $color-green-hover;
     }
   }
 
   &.btn-outline-success {
-    color: $color-accent;
-    border-color: $color-accent;
+    color: $color-green;
+    border-color: $color-green;
 
     p {
-      color: $color-accent;
+      color: $color-green;
     }
 
     svg {
-      fill: $color-accent;
+      fill: $color-green;
     }
 
     &:before {
-      background-color: $color-accent;
+      background-color: $color-green;
     }
   }
 

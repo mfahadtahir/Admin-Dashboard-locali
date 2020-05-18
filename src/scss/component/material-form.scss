@@ -12,11 +12,11 @@
     }
 
     & > div:hover:before {
-      border-bottom: 1px solid $color-accent !important;
+      border-bottom: 1px solid $color-green !important;
     }
 
     & > div:after {
-      border-color: $color-accent;
+      border-color: $color-green;
     }
 
     input, textarea {

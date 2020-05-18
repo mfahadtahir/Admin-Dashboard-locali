@@ -10,7 +10,7 @@ class MainWrapper extends PureComponent {
     const { children } = this.props;
 
     return (
-      <div className="theme-light">
+      <div className="theme-standard">
         <div className="wrapper">
           {children}
         </div>

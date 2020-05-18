@@ -106,13 +106,13 @@ h6 {
 blockquote {
   font-size: 13px;
   font-style: italic;
-  border-left: 3px solid $color-accent;
+  border-left: 3px solid $color-green;
   margin-bottom: 0;
   padding-left: 10px;
 }
 
 .highlight {
-  background-color: $color-accent;
+  background-color: $color-green;
   color: #ffffff;
 }
 
@@ -145,6 +145,6 @@ blockquote {
 
 ::selection {
   color: #ffffff;
-  background: $color-accent;
+  background: $color-green;
 }
 
