@@ -3,65 +3,54 @@ import React, { PureComponent } from 'react';
 import { Card, CardBody, Col } from 'reactstrap';
 import DataPaginationTable from '../../shared/components/table/DataPaginationTable';
 import Pagination from '../../shared/components/pagination/Pagination';
+// import {auth} from '../LogIn/Firebase/auth'
+import { db }  from '../LogIn/Firebase/firestore'
 
 export default class DataTable extends PureComponent {
   constructor() {
     super();
     this.heads = [
       {key: 'id', name: '#', width: 80 },
-      {key: 'first', name: 'First Name', sortable: true,},
-      {key: 'last', name: 'Last Name', sortable: true,},
-      {key: 'user', name: 'Username', sortable: true,},
-      {key: 'age', name: 'Age', sortable: true,},
+      {key: 'fName', name: 'First Name', sortable: true,},
+      {key: 'lName', name: 'Last Name', sortable: true,},
+      {key: 'amount', name: 'Amount', sortable: true,},
       {key: 'date', name: 'Date', sortable: true,},
-      {key: 'location', name: 'Location', sortable: true,},
-      {key: 'work', name: 'Work', sortable: true,},
+      {key: 'buisnessId', name: 'Buisness ID', sortable: true,},
+      {key: 'userId', name: 'User ID', sortable: true,},
+      {key: 'item', name: "Item", sortable: true}
     ];
 
-    const initialPageNumber = 1;
-    const initialRowsCount = 10;
-
-    const minRows = 20;
-    const maxRows = 41;
-    const rowsCount = Math.random() * (maxRows - minRows);
-
-    const originalRows = this.createRows(rowsCount + minRows);
-    const currentPageRows = this.filterRows(originalRows, initialPageNumber, initialRowsCount);
-
     this.state = {
-      rows: originalRows,
-      rowsToShow: currentPageRows,
-      pageOfItems: initialPageNumber,
-      itemsToShow: initialRowsCount,
+      rows: [],
+      rowsToShow: [],
+      pageOfItems: 1,
+      itemsToShow: 10,
     };
   }
+  componentDidMount(){
+    // console.log("Data Table Props: ", this.props);
+    let data = [], currData = {id: ''}, i = 1;
+    db.collection('businesses').doc(this.props.data.id).collection('orders').where('status', '==', 'pendiente').get()
+    .then(res => {
+      // console.log(res)
+      res.forEach((order, key) => {
+        currData = order.data();
+        currData.id = i++;
+        currData.fName = order.data().userName.split(' ')[0];
+        currData.lName = order.data().userName.split(' ')[1];
+        console.log(currData);
+        data.push(currData);
+      })
+      this.setState({rows: data, rowsToShow: this.filterRows(data, 1, 10)});
+    })
 
+  }
   onChangePage = (pageOfItems) => {
     const { rows, itemsToShow } = this.state;
     if (pageOfItems) {
       const rowsToShow = this.filterRows(rows, pageOfItems, itemsToShow);
       this.setState({ rowsToShow, pageOfItems });
     }
-  };
-
-  getRandomDate = (start, end) => new Date(start.getTime() + (Math.random() * (end.getTime()
-    - start.getTime()))).toLocaleDateString();
-
-  createRows = (numberOfRows) => {
-    const rows = [];
-    for (let i = 1; i < numberOfRows + 1; i += 1) {
-      rows.push({
-        id: i,
-        first: ['Maria', 'Bobby  ', 'Alexander'][Math.floor((Math.random() * 3))],
-        last: ['Morisson', 'Brown  ', 'Medinberg'][Math.floor((Math.random() * 3))],
-        user: ['@dragon', '@hamster', '@cat'][Math.floor((Math.random() * 3))],
-        age: Math.min(100, Math.round(Math.random() * 30) + 20),
-        date: this.getRandomDate(new Date(2002, 3, 1), new Date(1954, 3, 1)),
-        location: ['Melbourne', 'Tokio', 'Moscow', 'Rome'][Math.floor((Math.random() * 4))],
-        work: ['Nova Soft', 'Dog Shop', 'Aspirity', 'Business Bro', 'Starlight'][Math.floor((Math.random() * 5))],
-      });
-    }
-    return rows;
   };
 
   filterRows = (originalRows, pageNumber, rowsOnPage) => {
@@ -92,10 +81,8 @@ export default class DataTable extends PureComponent {
   };
 
   render() {
-    console.log(this.state, this.state.rows.length)
-    const {
-      rows, itemsToShow, pageOfItems, rowsToShow,
-    } = this.state;
+
+    const { rows, itemsToShow, pageOfItems, rowsToShow, } = this.state;
 
     return (
       <Col md={12} lg={12}>
@@ -106,13 +93,21 @@ export default class DataTable extends PureComponent {
               <h5 className="subhead">Use table with column's option <span className="red-text">sortable</span></h5>
             </div>
             {
-              rows ? 
+              rows ?
+
               <DataPaginationTable
                 heads={this.heads}
                 rows={rowsToShow}
                 onSorting={this.onSorting}
               />
-            : null
+            :   
+            <div class="load">
+              <div class="load__icon-wrap">
+                <svg class="load__icon">
+                  <path fill="#88C24E" d="M12,4V2A10,10 0 0,0 2,12H4A8,8 0 0,1 12,4Z"/>
+                </svg>
+              </div>
+            </div>
             }
             <Pagination
               itemsCount={rows.length}

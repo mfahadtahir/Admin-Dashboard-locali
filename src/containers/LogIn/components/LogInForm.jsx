@@ -72,7 +72,7 @@ class LogInForm extends PureComponent {
                   <a href="/">Forgot a password?</a>
                 </div>
               </div>
-              <a href='!#' className="btn btn-primary account__btn account__btn--small" style={{marginTop: 20}} onClick={SignInCall} >Sign In</a>
+              <a href='!#' className="btn btn-primary account__btn account__btn--small" style={{marginTop: 20}} onClick={(event) => SignInCall(event)} >Sign In</a>
               <Link className="btn btn-outline-primary account__btn account__btn--small" to="/sign_up">Create Account</Link>
             </form>
           </div>

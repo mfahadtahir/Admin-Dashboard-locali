@@ -3,8 +3,8 @@ import { db } from "./firestore";
 export const auth = firebase.auth();
 
 // user Sign Up 
-export const SignUpCall = () => {
-    // e.preventDefault();
+export const SignUpCall = (e) => {
+    e.preventDefault();
 
     var name = document.getElementById('reg-username').value;
     var email = document.getElementById("reg-email").value;
@@ -17,7 +17,10 @@ export const SignUpCall = () => {
                 auth.currentUser.updateProfile({displayName: name});
                 let uid = res.user.uid;
                 db.collection('admin-users').doc(res.user.uid).set({name,email,uid})
-                .then(() => console.log('User Added'))
+                .then(() => {
+                    console.log('User Added')
+                    window.location.replace('/dashboard');
+                })
             })
 
     } else {
@@ -26,8 +29,8 @@ export const SignUpCall = () => {
 }
 
 // User login 
-export const SignInCall = () => {
-    // e.preventDefault();
+export const SignInCall = (e) => {
+    e.preventDefault();
     const email = document.getElementById("login-email").value;
     const pass = document.getElementById("login-pass").value;
 
@@ -73,8 +76,10 @@ export const NewPassword = (oobCode) => {
 
 // User Sign Out
 export const SignOut = () => {
-    auth.signOut().then(res => {
+    auth.signOut()
+    .then(res => {
+      window.location.replace("/");
     }).catch(err => {
-        console.log(err)
+        console.log(err);
     })
 }

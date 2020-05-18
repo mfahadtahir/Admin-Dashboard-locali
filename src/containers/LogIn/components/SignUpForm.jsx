@@ -85,9 +85,8 @@ class SignUpForm extends PureComponent {
                 </div>
               </div>
 
-              <a href='!#' className="btn btn-primary account__btn account__btn--small" style={{marginTop: 20}} onClick={SignUpCall} >
+              <a href='!#' className="btn btn-primary account__btn account__btn--small" style={{marginTop: 20}} onClick={(event) => SignUpCall(event)} >
                 Register Now</a>
-              {/* <Link className="btn btn-outline-primary account__btn account__btn--small" to="/">Already Have an Account</Link> */}
             </form>
               <div className="account__have-account">
               <p>Already have an account? <Link to="/">Login</Link></p>
