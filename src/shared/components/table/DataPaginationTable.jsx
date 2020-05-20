@@ -1,9 +1,7 @@
-
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import ReactDataGrid from 'react-data-grid';
-
-
+import InformationOutlineIcon from 'mdi-react/InformationOutlineIcon';
 
 export default class DataPaginationTable extends PureComponent {
   static propTypes = {
@@ -17,15 +15,27 @@ export default class DataPaginationTable extends PureComponent {
     onSorting: PropTypes.func.isRequired,
   };
 
+
+
   rowGetter = (i) => {
     const { rows } = this.props;
     return rows[i];
   };
+  getCellActions = (column, row) => {
+    const cellActions = {
+      itemNo: [{
+        icon: <div style={{paddingTop: 10}} ><InformationOutlineIcon /></div>,
+        callback: () => {
+          console.log(row, row.buisnessID);
+        }
+      }]
+    };
+    return cellActions[column.key] ? cellActions[column.key] : null;
+  }
 
   render() {
     const { heads, rows, onSorting } = this.props;
-    // console.log();
-    let rowLength = rows.length;
+    // let rowLength = rows.length;
     return (
       <div className="table">
         <ReactDataGrid
@@ -35,6 +45,7 @@ export default class DataPaginationTable extends PureComponent {
           rowHeight={44}
           minColumnWidth={100}
           onGridSort={onSorting}
+          getCellActions={this.getCellActions}
         />
       </div>
     );

@@ -25,10 +25,6 @@ class UpcommingOrders extends Component{
           name = buisness.data().name;
           data.push({id, name});
         })
-        // if(document.getElementById('data-table-wrapper')){
-        //   document.getElementById('data-table-wrapper').parentNode.removeChild();
-        //   console.log('deleting the old and making new table'); 
-        // }
         this.setState({buisness: data, buisnessTable: data[0]});
 
       })
@@ -43,7 +39,6 @@ class UpcommingOrders extends Component{
     this.setState({buisnessTable: table})
   }
   render(){
-    // console.log(this.state.buisness);
     return(
     <Container>
       <Row>

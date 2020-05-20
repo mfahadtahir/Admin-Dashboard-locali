@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Alert, Button } from 'reactstrap';
+import { Alert } from 'reactstrap';
 import PropTypes from 'prop-types';
 import InformationOutlineIcon from 'mdi-react/InformationOutlineIcon';
 import ThumbUpOutlineIcon from 'mdi-react/ThumbUpOutlineIcon';

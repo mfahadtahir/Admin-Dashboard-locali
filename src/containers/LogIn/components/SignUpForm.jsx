@@ -5,8 +5,8 @@ import AccountOutlineIcon from 'mdi-react/AccountOutlineIcon';
 import { Link } from 'react-router-dom';
 import { SignUpCall } from '../Firebase/auth'
 import logoImg from '../../../shared/img/logo/Locali_Logo.png'
-import ErrorAlert from './ErrorList';
-// import Alert from '../../../shared/components/Alert'
+import ErrorAlert from './ErrorAlert';
+
 class SignUpForm extends PureComponent {
   constructor() {
     super();
@@ -95,7 +95,8 @@ class SignUpForm extends PureComponent {
                 </div>
               </div>
 
-              <a href='!#' className="btn btn-primary account__btn account__btn--small" style={{marginTop: 20}} onClick={(event) => SignUpCall(event, (err) => this.addError(err))} >
+              <a href='!#' className="btn btn-primary account__btn account__btn--small" style={{marginTop: 20}} 
+              onClick={(event) => SignUpCall(event, (err) => this.addError(err))} >
                 Register Now</a>
             </form>
               <div className="account__have-account">

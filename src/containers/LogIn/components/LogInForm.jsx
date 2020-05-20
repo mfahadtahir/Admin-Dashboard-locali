@@ -5,13 +5,19 @@ import AccountOutlineIcon from 'mdi-react/AccountOutlineIcon';
 import { Link } from 'react-router-dom';
 import { SignInCall } from '../Firebase/auth'
 import logoImg from '../../../shared/img/logo/Locali_Logo.png'
+import ErrorAlert from './ErrorAlert';
 
 class LogInForm extends PureComponent {
   constructor() {
     super();
     this.state = {
       showPassword: false,
+      error: null,
     };
+  }
+  addError = error => {
+    console.log("Adding an Error", error);
+    this.setState({error});
   }
 
   showPassword = (e) => {
@@ -34,6 +40,10 @@ class LogInForm extends PureComponent {
               </h3>
               <h4 className="account__subhead subhead">Start your business easily</h4>
             </div>
+            {this.state.error ?
+                <ErrorAlert message={this.state.error.message}/>
+              : null
+            }
             <form className="form">
               <div className="form__form-group">
                 <span className="form__form-group-label">User Email</span>
@@ -72,7 +82,8 @@ class LogInForm extends PureComponent {
                   <a href="/">Forgot a password?</a>
                 </div>
               </div>
-              <a href='!#' className="btn btn-primary account__btn account__btn--small" style={{marginTop: 20}} onClick={(event) => SignInCall(event)} >Sign In</a>
+              <a href='!#' className="btn btn-primary account__btn account__btn--small" style={{marginTop: 20}} 
+              onClick={(event) => SignInCall(event, (err) => this.addError(err))} >Sign In</a>
               <Link className="btn btn-outline-primary account__btn account__btn--small" to="/sign_up">Create Account</Link>
             </form>
           </div>

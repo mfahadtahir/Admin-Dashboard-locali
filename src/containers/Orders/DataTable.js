@@ -1,6 +1,6 @@
-/* eslint-disable react/no-unused-state,react/no-unescaped-entities */
 import React, { PureComponent } from 'react';
 import { Card, CardBody, Col } from 'reactstrap';
+import CloseCircleOutlineIcon from 'mdi-react/CloseCircleOutlineIcon';
 import DataPaginationTable from '../../shared/components/table/DataPaginationTable';
 import Pagination from '../../shared/components/pagination/Pagination';
 // import {auth} from '../LogIn/Firebase/auth'
@@ -13,11 +13,12 @@ export default class DataTable extends PureComponent {
       {key: 'id', name: '#', width: 80 },
       {key: 'fName', name: 'First Name', sortable: true,},
       {key: 'lName', name: 'Last Name', sortable: true,},
-      {key: 'amount', name: 'Amount', sortable: true,},
       {key: 'date', name: 'Date', sortable: true,},
-      {key: 'buisnessId', name: 'Buisness ID', sortable: true,},
-      {key: 'userId', name: 'User ID', sortable: true,},
-      {key: 'item', name: "Item", sortable: true}
+      {key: 'amount', name: 'Amount', sortable: true},
+      {key: 'itemNo', name: "Items", sortable: true},
+      // {key: 'buisnessId', name: "Buisness", 
+      // formatter :<button style={{marginBottom: 0}} type = "button" className="btn btn-primary" onClick = {() => console.log(this)} > Item Details  </button>
+    // }
     ];
 
     this.state = {
@@ -36,9 +37,9 @@ export default class DataTable extends PureComponent {
       res.forEach((order, key) => {
         currData = order.data();
         currData.id = i++;
+        currData.itemNo = order.data().items.length;
         currData.fName = order.data().userName.split(' ')[0];
         currData.lName = order.data().userName.split(' ')[1];
-        console.log(currData);
         data.push(currData);
       })
       this.setState({rows: data, rowsToShow: this.filterRows(data, 1, 10)});
@@ -78,9 +79,18 @@ export default class DataTable extends PureComponent {
     const sortRows = this.filterRows(rows, pageOfItems, itemsToShow);
     this.setState({ rowsToShow: sortRows });
     return sortRows;
-  };
-
+  }
+  
+  
   render() {
+    const itemActions = [
+      {
+        icon: <CloseCircleOutlineIcon />,
+        callback: () => {
+          alert("Transfering To Different Page");
+        }
+      },
+    ];
 
     const { rows, itemsToShow, pageOfItems, rowsToShow, } = this.state;
 
@@ -99,6 +109,7 @@ export default class DataTable extends PureComponent {
                 heads={this.heads}
                 rows={rowsToShow}
                 onSorting={this.onSorting}
+                itemActions={itemActions}
               />
             :   
             <div class="load">

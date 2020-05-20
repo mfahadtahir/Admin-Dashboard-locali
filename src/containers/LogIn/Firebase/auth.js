@@ -15,7 +15,7 @@ export const SignUpCall = (e, addError) => {
     var name = document.getElementById('reg-username').value;
     var email = document.getElementById("reg-email").value;
     var pass = document.getElementById("reg-pass").value;
-    if(pass.length <= 8){
+    if(pass.length < 8){
       let err = {message: "Password length should be minimum 8!"}
         addError(err);
         setTimeout(() => {
@@ -64,7 +64,7 @@ export const SignUpCall = (e, addError) => {
 }
 
 // User login 
-export const SignInCall = (e) => {
+export const SignInCall = (e, addError) => {
     e.preventDefault();
     const email = document.getElementById("login-email").value;
     const pass = document.getElementById("login-pass").value;
@@ -75,9 +75,15 @@ export const SignInCall = (e) => {
         window.location.replace("/dashboard");
         console.log(auth.currentUser);
       }
-    }).catch(err => {
-        console.log(err);
+    }) .catch((err) => {
+      let error = {message: err.message}
+      addError(error);
+      setTimeout(() => {
+        addError(null);
+      }, 3050);
+      console.log('Every Field is Mandatory!')
     });
+
 }
 // User Pass Reset
 export const PassReset = () => {
