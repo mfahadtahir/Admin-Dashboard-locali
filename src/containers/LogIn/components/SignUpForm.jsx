@@ -5,12 +5,14 @@ import AccountOutlineIcon from 'mdi-react/AccountOutlineIcon';
 import { Link } from 'react-router-dom';
 import { SignUpCall } from '../Firebase/auth'
 import logoImg from '../../../shared/img/logo/Locali_Logo.png'
-
+import ErrorAlert from './ErrorList';
+// import Alert from '../../../shared/components/Alert'
 class SignUpForm extends PureComponent {
   constructor() {
     super();
     this.state = {
       showPassword: false,
+      error: null,
     };
   }
 
@@ -18,6 +20,10 @@ class SignUpForm extends PureComponent {
     e.preventDefault();
     this.setState(prevState => ({ showPassword: !prevState.showPassword }));
   };
+  addError = error => {
+    console.log("Adding an Error", error);
+    this.setState({error});
+  }
 
   render() {
     const { showPassword } = this.state;
@@ -34,7 +40,11 @@ class SignUpForm extends PureComponent {
               </h3>
               <h4 className="account__subhead subhead">Your Journey Begins here</h4>
             </div>
-
+            {this.state.error ?
+                <ErrorAlert message={this.state.error.message}/>
+              : null
+            }
+            {/* <ErrorList /> */}
             <form className="form">
               <div className="form__form-group">
                 <span className="form__form-group-label">User Name</span>
@@ -85,7 +95,7 @@ class SignUpForm extends PureComponent {
                 </div>
               </div>
 
-              <a href='!#' className="btn btn-primary account__btn account__btn--small" style={{marginTop: 20}} onClick={(event) => SignUpCall(event)} >
+              <a href='!#' className="btn btn-primary account__btn account__btn--small" style={{marginTop: 20}} onClick={(event) => SignUpCall(event, (err) => this.addError(err))} >
                 Register Now</a>
             </form>
               <div className="account__have-account">

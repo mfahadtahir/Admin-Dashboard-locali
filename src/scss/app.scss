@@ -7,10 +7,12 @@
 @import './base/typography';          // base styles of h1-h6, p, span
 
 //components...
-@import 'component/btn';
-@import 'component/buisness-collapse.scss';
+@import './component/alert';
+@import './component/btn';
+@import './component/buisness-collapse';
 @import './component/card';
 @import './component/check-box';
+@import './component/collapse';
 @import './component/edit-table';
 @import './component/sidebar';
 @import './component/pagination';

@@ -1,4 +1,11 @@
 /node_modules
 .firebase/
-firebase.js
 /build
+/config
+
+firebase.js
+firebase.json
+.firebaserc
+
+
+yarn.lock

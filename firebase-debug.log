@@ -1,0 +1,70 @@
+[debug] [2020-05-20T11:24:01.558Z] ----------------------------------------------------------------------
+[debug] [2020-05-20T11:24:01.560Z] Command:       /usr/local/bin/firebase /home/maxplanko89/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase deploy
+[debug] [2020-05-20T11:24:01.560Z] CLI Version:   7.14.0
+[debug] [2020-05-20T11:24:01.560Z] Platform:      linux
+[debug] [2020-05-20T11:24:01.560Z] Node Version:  v12.13.1
+[debug] [2020-05-20T11:24:01.567Z] Time:          Wed May 20 2020 16:24:01 GMT+0500 (Pakistan Standard Time)
+[debug] [2020-05-20T11:24:01.567Z] ----------------------------------------------------------------------
+[debug] [2020-05-20T11:24:01.567Z] 
+[debug] [2020-05-20T11:24:01.580Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-20T11:24:01.580Z] > authorizing via signed-in user
+[debug] [2020-05-20T11:24:01.581Z] [iam] checking project projectpurple-e7dba for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-05-20T11:24:01.583Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-05-20T11:24:01.583Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-05-20T11:24:01.972Z] <<< HTTP RESPONSE 200
+[debug] [2020-05-20T11:24:01.985Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/projectpurple-e7dba:testIamPermissions  
+
+[debug] [2020-05-20T11:24:08.616Z] <<< HTTP RESPONSE 200
+[debug] [2020-05-20T11:24:08.619Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/projectpurple-e7dba  
+ 
+[debug] [2020-05-20T11:24:28.637Z] Server Error. getaddrinfo EAI_AGAIN firebase.googleapis.com
+[debug] [2020-05-20T11:24:28.979Z] FirebaseError: Server Error. getaddrinfo EAI_AGAIN firebase.googleapis.com
+    at Request._callback (/home/maxplanko89/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/api.js:30:31)
+    at self.callback (/home/maxplanko89/.cache/firebase/tools/lib/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:210:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at Request.onRequestError (/home/maxplanko89/.cache/firebase/tools/lib/node_modules/request/request.js:877:8)
+    at ClientRequest.emit (events.js:215:7)
+    at ClientRequest.EventEmitter.emit (domain.js:475:20)
+    at TLSSocket.socketErrorListener (_http_client.js:406:9)
+    at TLSSocket.emit (events.js:210:5)
+    at TLSSocket.EventEmitter.emit (domain.js:475:20)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21)
+[error] 
+[error] Error: Failed to get Firebase project projectpurple-e7dba. Please make sure the project exists and your account has permission to access it.
+[debug] [2020-05-20T11:30:04.588Z] ----------------------------------------------------------------------
+[debug] [2020-05-20T11:30:04.591Z] Command:       /usr/local/bin/firebase /home/maxplanko89/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase deploy
+[debug] [2020-05-20T11:30:04.591Z] CLI Version:   7.14.0
+[debug] [2020-05-20T11:30:04.591Z] Platform:      linux
+[debug] [2020-05-20T11:30:04.591Z] Node Version:  v12.13.1
+[debug] [2020-05-20T11:30:04.592Z] Time:          Wed May 20 2020 16:30:04 GMT+0500 (Pakistan Standard Time)
+[debug] [2020-05-20T11:30:04.592Z] ----------------------------------------------------------------------
+[debug] [2020-05-20T11:30:04.592Z] 
+[debug] [2020-05-20T11:30:04.602Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-20T11:30:04.602Z] > authorizing via signed-in user
+[debug] [2020-05-20T11:30:04.603Z] [iam] checking project projectpurple-e7dba for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-05-20T11:30:04.604Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/projectpurple-e7dba:testIamPermissions  
+
+[debug] [2020-05-20T11:30:06.584Z] <<< HTTP RESPONSE 200
+[debug] [2020-05-20T11:30:06.589Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/projectpurple-e7dba  
+ 
+[debug] [2020-05-20T11:30:21.607Z] Server Error. getaddrinfo EAI_AGAIN firebase.googleapis.com
+[debug] [2020-05-20T11:30:22.036Z] FirebaseError: Server Error. getaddrinfo EAI_AGAIN firebase.googleapis.com
+    at Request._callback (/home/maxplanko89/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/api.js:30:31)
+    at self.callback (/home/maxplanko89/.cache/firebase/tools/lib/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:210:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at Request.onRequestError (/home/maxplanko89/.cache/firebase/tools/lib/node_modules/request/request.js:877:8)
+    at ClientRequest.emit (events.js:215:7)
+    at ClientRequest.EventEmitter.emit (domain.js:475:20)
+    at TLSSocket.socketErrorListener (_http_client.js:406:9)
+    at TLSSocket.emit (events.js:210:5)
+    at TLSSocket.EventEmitter.emit (domain.js:475:20)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21)
+[error] 
+[error] Error: Failed to get Firebase project projectpurple-e7dba. Please make sure the project exists and your account has permission to access it.
