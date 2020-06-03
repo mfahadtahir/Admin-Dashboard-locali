@@ -1,0 +1,80 @@
+[debug] [2020-05-21T15:49:22.783Z] ----------------------------------------------------------------------
+[debug] [2020-05-21T15:49:22.785Z] Command:       /usr/local/bin/firebase /home/maxplanko89/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase init
+[debug] [2020-05-21T15:49:22.785Z] CLI Version:   7.14.0
+[debug] [2020-05-21T15:49:22.785Z] Platform:      linux
+[debug] [2020-05-21T15:49:22.785Z] Node Version:  v12.13.1
+[debug] [2020-05-21T15:49:22.785Z] Time:          Thu May 21 2020 20:49:22 GMT+0500 (Pakistan Standard Time)
+[debug] [2020-05-21T15:49:22.785Z] ----------------------------------------------------------------------
+[debug] [2020-05-21T15:49:22.785Z] 
+[debug] [2020-05-21T15:49:22.790Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-21T15:49:22.790Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/maxplanko89/FIVER PROJECTS/Admin-Dashboard-locali
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  .firebaserc already has a default project, using projectpurple-e7dba.
+[debug] [2020-05-21T15:49:28.573Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/projectpurple-e7dba  
+ 
+[debug] [2020-05-21T15:49:29.186Z] <<< HTTP RESPONSE 200
+[info] 
+=== Functions Setup
+[info] 
+[info] A functions directory will be created in your project with a Node.js
+[info] package pre-configured. Functions can be deployed with firebase deploy.
+[info] 
+[debug] [2020-05-21T15:49:29.192Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-21T15:49:29.193Z] > authorizing via signed-in user
+[debug] [2020-05-21T15:49:29.193Z] [iam] checking project projectpurple-e7dba for permissions ["firebase.projects.get"]
+[debug] [2020-05-21T15:49:29.194Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/projectpurple-e7dba:testIamPermissions  
+
+[debug] [2020-05-21T15:49:30.758Z] <<< HTTP RESPONSE 200
+[debug] [2020-05-21T15:49:30.761Z] >>> HTTP REQUEST POST https://serviceusage.googleapis.com/v1/projects/projectpurple-e7dba/services/cloudfunctions.googleapis.com:enable  
+ 
+[debug] [2020-05-21T15:49:30.763Z] >>> HTTP REQUEST POST https://serviceusage.googleapis.com/v1/projects/projectpurple-e7dba/services/runtimeconfig.googleapis.com:enable  
+ 
+[debug] [2020-05-21T15:49:37.504Z] <<< HTTP RESPONSE 200
+[debug] [2020-05-21T15:49:37.561Z] <<< HTTP RESPONSE 200
+[info] ✔  Wrote functions/package.json
+[info] ✔  Wrote functions/.eslintrc.json
+[info] ✔  Wrote functions/index.js
+[info] ✔  Wrote functions/.gitignore
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[debug] [2020-05-21T15:50:46.392Z] >>> HTTP REQUEST GET https://www.gstatic.com/firebasejs/releases.json  
+ 
+[debug] [2020-05-21T15:50:46.700Z] <<< HTTP RESPONSE 200
+[info] i  Skipping write of build/index.html
+[info] 
+[info] i  Writing configuration info to firebase.json...
+[debug] [2020-05-21T15:50:49.179Z] Error: EACCES: permission denied, open '/home/maxplanko89/FIVER PROJECTS/Admin-Dashboard-locali/firebase.json'
+    at Object.openSync (fs.js:440:3)
+    at Object.fs.openSync (pkg/prelude/bootstrap.js:490:32)
+    at Object.writeFileSync (fs.js:1265:35)
+    at Config.writeProjectFile (/home/maxplanko89/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/config.js:179:8)
+    at /home/maxplanko89/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/commands/init.js:135:16
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[error] 
+[error] Error: An unexpected error has occurred.

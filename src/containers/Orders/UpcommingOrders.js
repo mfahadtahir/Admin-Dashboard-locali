@@ -10,14 +10,14 @@ class UpcommingOrders extends Component{
     super(props);
     this.state = {
       collapse: false,
-      buisness: [{name: '', id: ''}],
+      buisness: [],
       buisnessTable: {name: '', id: ''},
     };
   }
   componentDidMount(){
     if(auth.currentUser){
       let data = [], id, name;
-      db.collection('businesses').where('ownerID', '==' , auth.currentUser.uid).get()
+      db.collection('businesses').where('ownerId', '==' , auth.currentUser.uid).get()
       .then((res) => {
         res.forEach(buisness => {
           console.log( "Response from Server: ", buisness.data().name );
@@ -47,12 +47,12 @@ class UpcommingOrders extends Component{
         </Col>
         <Col md={4} lg={3} >
 
-
         <div className="buisness">
           <button type="button" className='buisness__avatar' onClick={this.toggle}>
             <p className='buisness__avatar-name' >My Buisness</p>
             <DownIcon className="topbar__icon" />
           </button>
+          {this.state.buisness.length > 0 ?
           <Collapse isOpen={this.state.collapse} className="buisness__menu-wrap" >
             <div className="buisness__menu active">
             {this.state.buisness.map((item, key) => 
@@ -62,6 +62,8 @@ class UpcommingOrders extends Component{
             )}
             </div>
           </Collapse>
+          : null
+          }
         </div>
 
 

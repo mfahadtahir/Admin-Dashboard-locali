@@ -83,25 +83,12 @@ export default class DataTable extends PureComponent {
   
   
   render() {
-    const itemActions = [
-      {
-        icon: <CloseCircleOutlineIcon />,
-        callback: () => {
-          alert("Transfering To Different Page");
-        }
-      },
-    ];
-
     const { rows, itemsToShow, pageOfItems, rowsToShow, } = this.state;
 
     return (
       <Col md={12} lg={12}>
         <Card>
           <CardBody>
-            <div className="card__title">
-              <h5 className="bold-text">data table</h5>
-              <h5 className="subhead">Use table with column's option <span className="red-text">sortable</span></h5>
-            </div>
             {
               rows ?
 
@@ -109,7 +96,6 @@ export default class DataTable extends PureComponent {
                 heads={this.heads}
                 rows={rowsToShow}
                 onSorting={this.onSorting}
-                itemActions={itemActions}
               />
             :   
             <div class="load">

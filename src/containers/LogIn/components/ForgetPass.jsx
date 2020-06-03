@@ -1,17 +1,14 @@
 import React, { PureComponent } from 'react';
-import EyeIcon from 'mdi-react/EyeIcon';
-import KeyVariantIcon from 'mdi-react/KeyVariantIcon';
 import AccountOutlineIcon from 'mdi-react/AccountOutlineIcon';
 import { Link } from 'react-router-dom';
-import { SignInCall } from '../Firebase/auth'
+import { PassReset } from '../Firebase/auth'
 import logoImg from '../../../shared/img/logo/Locali_Logo.png'
 import ErrorAlert from './ErrorAlert';
 
-class LogInForm extends PureComponent {
+class ForgetPass extends PureComponent {
   constructor() {
     super();
     this.state = {
-      showPassword: false,
       error: null,
     };
   }
@@ -19,11 +16,6 @@ class LogInForm extends PureComponent {
     console.log("Adding an Error", error);
     this.setState({error});
   }
-
-  showPassword = (e) => {
-    e.preventDefault();
-    this.setState(prevState => ({ showPassword: !prevState.showPassword }));
-  };
 
   render() {
     const { showPassword } = this.state;
@@ -41,7 +33,7 @@ class LogInForm extends PureComponent {
               <h4 className="account__subhead subhead">Start your business easily</h4>
             </div>
             {this.state.error ?
-                <ErrorAlert message={this.state.error.message} status={this.state.error.status}/>
+                <ErrorAlert message={this.state.error.message} status={this.state.error.status} />
               : null
             }
             <form className="form">
@@ -55,35 +47,12 @@ class LogInForm extends PureComponent {
                     name="name"
                     type="text"
                     placeholder="Email"
-                    id="login-email"
+                    id="reset-email"
                   />
-                </div>
-              </div>
-              <div className="form__form-group">
-                <span className="form__form-group-label">Password</span>
-                <div className="form__form-group-field">
-                  <div className="form__form-group-icon">
-                    <KeyVariantIcon />
-                  </div>
-                  <input
-                    name="password"
-                    type={showPassword ? 'text' : 'password'}
-                    placeholder="Password"
-                    id='login-pass'
-                  />
-                  <button
-                    className={`form__form-group-button${showPassword ? ' active' : ''}`}
-                    onClick={e => this.showPassword(e)}
-                    type="button"
-                  ><EyeIcon />
-                  </button>
-                </div>
-                <div className="account__forgot-password">
-                  <a href="/forgetPass">Forgot a password?</a>
                 </div>
               </div>
               <a href='!#' className="btn btn-primary account__btn account__btn--small" style={{marginTop: 20}} 
-              onClick={(event) => SignInCall(event, (err) => this.addError(err))} >Sign In</a>
+              onClick={(event) => PassReset(event, (err) => this.addError(err))} >Send Code To Email</a>
               <Link className="btn btn-outline-primary account__btn account__btn--small" to="/sign_up">Create Account</Link>
             </form>
           </div>
@@ -93,4 +62,4 @@ class LogInForm extends PureComponent {
   }
 }
 
-export default LogInForm;
+export default ForgetPass;

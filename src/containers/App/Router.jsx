@@ -5,11 +5,13 @@ import MainWrapper from './MainWrapper';
 import {auth} from '../LogIn/Firebase/auth'
 
 import LogIn from '../LogIn/components/LogInForm';
+import ForgetPass from '../LogIn/components/ForgetPass';
 import SignUp from '../LogIn/components/SignUpForm';
 import Dashboard from '../Dashboard/index';
 import Products from '../Products/index';
 import UpcommingOrders from '../Orders/UpcommingOrders'
 import PastOrders from '../Orders/PastOrders'
+import OrderDetails from '../Orders/OrderDetail';
 
 
 class wrappedRoutes extends Component {
@@ -43,6 +45,7 @@ class wrappedRoutes extends Component {
               <Route path="/products" component={Products} />
               <Route path="/orders/upcomming" component={UpcommingOrders} />
               <Route path="/orders/past" component={PastOrders} />
+              <Route path='/orders/details/:buid/:id' component={OrderDetails} />
             </Switch>
         </div></>
             :
@@ -64,6 +67,7 @@ const Router = () => (
       <Switch>
         <Route exact path="/" component={LogIn} />
         <Route exact path="/sign_up" component={SignUp} />
+        <Route exact path="/forgetPass" component={ForgetPass} />
         <Route path="/" component={wrappedRoutes} />
       </Switch>
     </main>

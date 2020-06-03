@@ -17,7 +17,8 @@ export const SignUpCall = (e, addError) => {
     var pass = document.getElementById("reg-pass").value;
     if(pass.length < 8){
       let err = {message: "Password length should be minimum 8!"}
-        addError(err);
+      err.status = 'danger';
+        addError(err,);
         setTimeout(() => {
           addError(null);
         }, 3050);
@@ -25,6 +26,7 @@ export const SignUpCall = (e, addError) => {
     }
     if(!hasNumber(pass)){
       let err = {message: "Enter a valid password, Password must contain minimum 8 characters with atleast 1 number in it"}
+      err.status = 'danger';
       addError(err);
       setTimeout(() => {
         addError(null);
@@ -45,6 +47,7 @@ export const SignUpCall = (e, addError) => {
       })
       .catch((err) => {
         let error = {message: err.message}
+        error.status = 'danger';
         addError(error);
         setTimeout(() => {
           addError(null);
@@ -55,6 +58,7 @@ export const SignUpCall = (e, addError) => {
     } 
     else {
       let err = {message: "Every Field is Mandatory!"}
+      err.status = 'danger';
       addError(err);
       setTimeout(() => {
         addError(null);
@@ -77,6 +81,7 @@ export const SignInCall = (e, addError) => {
       }
     }) .catch((err) => {
       let error = {message: err.message}
+      error.status = 'danger';
       addError(error);
       setTimeout(() => {
         addError(null);
@@ -86,33 +91,30 @@ export const SignInCall = (e, addError) => {
 
 }
 // User Pass Reset
-export const PassReset = () => {
+export const PassReset = (e,addError) => {
+  e.preventDefault();
 var emailAddress = document.getElementById("reset-email").value;
-
-auth.sendPasswordResetEmail(emailAddress).then(function() {
-  window.location.replace("/");
-  SignOut();
-}).catch(function(error) {
-  console.log(error);
-});
+auth.sendPasswordResetEmail(emailAddress)
+  .then((res) =>  {
+    let response = {}
+    response.status = 'success';
+    response.message = 'Email Sent! Kindly check your inbox for reset code!'
+    addError(response);
+    setTimeout(() => {
+      addError(null);
+    }, 3050);
+  })
+  .catch(error => {
+    let response = {}
+    response.status = 'danger';
+    response.message = error.message;
+    addError(response);
+    setTimeout(() => {
+      addError(null);
+    }, 3050);
+    console.log(error)
+  })
 }
-export const NewPassword = (oobCode) => {
-    let newPassword = document.getElementById("newPass").value;
-    let confirmPassword = document.getElementById("confirmPass").value;
-    if(newPassword === confirmPassword){
-      auth.confirmPasswordReset(oobCode, newPassword)
-        .then(function() {
-          window.location.replace("/home");
-        })
-        .catch(function(error) {
-            console.log(error);
-        })
-    }
-    else{
-        alert("Confirm password and new password are different!");
-    }
-}
-
 
 // User Sign Out
 export const SignOut = () => {

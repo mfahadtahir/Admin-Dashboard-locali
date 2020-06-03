@@ -26,7 +26,9 @@ export default class DataPaginationTable extends PureComponent {
       itemNo: [{
         icon: <div style={{paddingTop: 10}} ><InformationOutlineIcon /></div>,
         callback: () => {
-          console.log(row, row.buisnessID);
+          window.location.replace('details/'+ row.buisnessId + "/" + row.orderId);
+          console.log(row, row.orderId);
+
         }
       }]
     };
@@ -35,7 +37,6 @@ export default class DataPaginationTable extends PureComponent {
 
   render() {
     const { heads, rows, onSorting } = this.props;
-    // let rowLength = rows.length;
     return (
       <div className="table">
         <ReactDataGrid

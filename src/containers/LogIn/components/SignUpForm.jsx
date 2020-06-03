@@ -41,7 +41,7 @@ class SignUpForm extends PureComponent {
               <h4 className="account__subhead subhead">Your Journey Begins here</h4>
             </div>
             {this.state.error ?
-                <ErrorAlert message={this.state.error.message}/>
+                <ErrorAlert message={this.state.error.message} status={this.state.error.status}/>
               : null
             }
             {/* <ErrorList /> */}
